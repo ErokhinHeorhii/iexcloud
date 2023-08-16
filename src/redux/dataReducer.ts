@@ -29,7 +29,6 @@ const slice = createSlice({
   extraReducers: builder => {
     builder.addCase(getRatesTC.fulfilled, (state, action) => {
       state.dataForDisplaying = action?.payload! as unknown as DataForDisplayingType[]
-      console.log(action?.payload!)
     })
   },
 })

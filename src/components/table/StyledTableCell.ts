@@ -15,7 +15,13 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
 }))
+
+export const tableContainer = {
+  maxWidth: 1200,
+  margin: '0 auto ',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+}
+export const table = { maxWidth: 900, margin: '25px auto ' }

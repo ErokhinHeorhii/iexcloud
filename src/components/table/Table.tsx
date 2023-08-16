@@ -1,14 +1,17 @@
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { getRatesTC } from '../../redux/dataReducer'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Paper, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material'
-import { createData } from '../../common/utils/createData'
-import { StyledTableCell, StyledTableRow } from './StyledTableCell'
+import { createData, CreateDataReturnType } from '../../common/utils/createData'
+import { StyledTableCell, StyledTableRow, table, tableContainer } from './StyledTableCell'
+import { PaginationControlled } from '../pagination/Pagination'
 
+type StringMap = { [key: string]: CreateDataReturnType[] }
 export default function StockTable() {
   const dispatch = useAppDispatch()
   const symbolData = useAppSelector(state => state.tableData.dataForDisplaying)
+
   useEffect(() => {
     dispatch(getRatesTC())
   }, [dispatch])
@@ -16,10 +19,21 @@ export default function StockTable() {
   const rows = symbolData.map(item => {
     return createData(item.symbol, item.priceDate, item.high, item.low, item.open, item.close)
   })
-  console.log(rows)
+
+  const numberOnPage = 8
+  const totalPage = Math.round(rows.length / numberOnPage)
+
+  const objectData: StringMap = {
+    1: symbolData.slice(0, 9),
+    2: symbolData.slice(9, 18),
+    3: symbolData.slice(18, 27),
+    4: symbolData.slice(27, 36),
+  }
+  const [rowsForDisplaing, setRowsForDisplaing] = useState<string>('1')
+
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ maxWidth: 900, margin: '25px auto ' }} aria-label="customized table">
+    <TableContainer component={Paper} sx={tableContainer}>
+      <Table sx={table} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Symbol</StyledTableCell>
@@ -31,20 +45,21 @@ export default function StockTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {objectData[rowsForDisplaing].map((row, index) => (
             <StyledTableRow key={index}>
               <StyledTableCell component="th" scope="row">
                 {row.symbol}
               </StyledTableCell>
               <StyledTableCell align="right"> {row.priceDate}</StyledTableCell>
-              <StyledTableCell align="right">{row.open}</StyledTableCell>
-              <StyledTableCell align="right">{row.high}</StyledTableCell>
-              <StyledTableCell align="right">{row.low}</StyledTableCell>
-              <StyledTableCell align="right">{row.close}</StyledTableCell>
+              <StyledTableCell align="right">{row.open.toFixed(2)}</StyledTableCell>
+              <StyledTableCell align="right">{row.high.toFixed(2)}</StyledTableCell>
+              <StyledTableCell align="right">{row.low.toFixed(2)}</StyledTableCell>
+              <StyledTableCell align="right">{row.close.toFixed(2)}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
+      <PaginationControlled totalPage={totalPage} setRowsForDisplaing={setRowsForDisplaing} />
     </TableContainer>
   )
 }
