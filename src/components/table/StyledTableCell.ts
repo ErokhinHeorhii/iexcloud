@@ -24,4 +24,7 @@ export const tableContainer = {
   flexDirection: 'column',
   alignItems: 'center',
 }
-export const table = { maxWidth: 900, margin: '25px auto ' }
+export const table = {
+  maxWidth: 900,
+  margin: '25px auto',
+}

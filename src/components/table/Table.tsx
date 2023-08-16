@@ -9,6 +9,7 @@ import { PaginationControlled } from '../pagination/Pagination'
 
 type StringMap = { [key: string]: CreateDataReturnType[] }
 export default function StockTable() {
+  const [rowsForDisplaing, setRowsForDisplaing] = useState<string>('1')
   const dispatch = useAppDispatch()
   const symbolData = useAppSelector(state => state.tableData.dataForDisplaying)
 
@@ -20,16 +21,15 @@ export default function StockTable() {
     return createData(item.symbol, item.priceDate, item.high, item.low, item.open, item.close)
   })
 
-  const numberOnPage = 8
-  const totalPage = Math.round(rows.length / numberOnPage)
-
   const objectData: StringMap = {
     1: symbolData.slice(0, 9),
     2: symbolData.slice(9, 18),
     3: symbolData.slice(18, 27),
     4: symbolData.slice(27, 36),
   }
-  const [rowsForDisplaing, setRowsForDisplaing] = useState<string>('1')
+
+  const numberOnPage = 8
+  const totalPage = Math.round(rows.length / numberOnPage)
 
   return (
     <TableContainer component={Paper} sx={tableContainer}>
