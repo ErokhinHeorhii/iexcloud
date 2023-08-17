@@ -8,7 +8,7 @@ import { StyledTableCell, StyledTableRow, table, tableContainer } from './Styled
 import { PaginationControlled } from '../pagination/Pagination'
 
 type StringMap = { [key: string]: CreateDataReturnType[] }
-export default function StockTable() {
+export const StockTable = () => {
   const [rowsForDisplaing, setRowsForDisplaing] = useState<string>('1')
   const dispatch = useAppDispatch()
   const symbolData = useAppSelector(state => state.tableData.dataForDisplaying)
@@ -33,6 +33,7 @@ export default function StockTable() {
 
   return (
     <TableContainer component={Paper} sx={tableContainer}>
+      <h3>Stock Quote for Apple (last month)</h3>
       <Table sx={table} aria-label="customized table">
         <TableHead>
           <TableRow>
