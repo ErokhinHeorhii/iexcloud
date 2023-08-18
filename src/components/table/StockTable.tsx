@@ -1,9 +1,9 @@
+import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { getRatesTC } from '../../redux/dataReducer'
-import React, { useEffect } from 'react'
-
 import {
   Container,
+  LinearProgress,
   Paper,
   Table,
   TableBody,
@@ -12,10 +12,16 @@ import {
   TableRow,
 } from '@mui/material'
 import { createData } from '../../common/utils/createData'
-import { StyledTableCell, StyledTableRow, table, tableContainer } from './StyledTableCell'
 import { PaginationControlled } from '../pagination/Pagination'
 import { DataForDisplayingType } from '../../servises/api'
 import { Draggable } from 'react-beautiful-dnd'
+import {
+  paginationContainer,
+  StyledTableCell,
+  StyledTableRow,
+  table,
+  tableContainer,
+} from './StyledTableCell'
 
 type StockTableType = {
   quotes: DataForDisplayingType[]
@@ -24,6 +30,7 @@ type StockTableType = {
 export const StockTable = ({ quotes, setRowsForDisplaying }: StockTableType) => {
   const dispatch = useAppDispatch()
   const symbolData = useAppSelector(state => state.tableData.dataForDisplaying)
+  const status = useAppSelector(state => state.appData.status)
 
   useEffect(() => {
     dispatch(getRatesTC())
@@ -80,12 +87,7 @@ export const StockTable = ({ quotes, setRowsForDisplaying }: StockTableType) => 
           </TableBody>
         </Table>
       </TableContainer>
-      <Container
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
+      <Container sx={paginationContainer}>
         <PaginationControlled totalPage={totalPage} setRowsForDisplaing={setRowsForDisplaying} />
       </Container>
     </>

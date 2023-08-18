@@ -38,7 +38,7 @@ export type GetDataResponseType = {
 }
 export const cloudIexapisApi = {
   getData() {
-    return instance.get<GetDataResponseType>(
+    return instance.get<DataForDisplayingType[]>(
       `/stable/stock/AAPL/chart/1m?token=${process.env.REACT_APP_API_KEY}`
     )
   },

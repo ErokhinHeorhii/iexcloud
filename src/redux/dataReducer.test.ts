@@ -66,7 +66,7 @@ beforeEach(() => {
 })
 
 test('stockData should be set', () => {
-  const action = getRatesTC.fulfilled(startState as any, 'requestId')
+  const action = getRatesTC.fulfilled(startState, 'requestId')
   const endState = dataReducer({} as GetDataResponseType, action)
   expect(endState.dataForDisplaying.length).toBe(2)
 })

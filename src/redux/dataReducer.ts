@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { AxiosError } from 'axios'
-import { cloudIexapisApi } from 'servises/api'
+import { cloudIexapisApi, DataForDisplayingType } from 'servises/api'
 import { setAppErrorAC, setAppStatusAC } from 'redux/appReduser'
 import { errorUtils } from 'common/utils/errorUtils'
 import { initialState } from 'common/const/initialState'
@@ -28,7 +28,7 @@ const slice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(getRatesTC.fulfilled, (state, action) => {
-      state.dataForDisplaying = action?.payload as any
+      state.dataForDisplaying = action?.payload as DataForDisplayingType[]
     })
   },
 })

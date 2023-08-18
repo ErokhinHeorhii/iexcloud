@@ -5,6 +5,7 @@ export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
+    width: '150px',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -25,9 +26,13 @@ export const tableContainer = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  position: 'relative',
 }
 export const table = {
-  maxWidth: 900,
+  maxWidth: 950,
   margin: '10px auto',
+}
+
+export const paginationContainer = {
+  display: 'flex',
+  justifyContent: 'center',
 }
