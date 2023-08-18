@@ -11,13 +11,12 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material'
-import { createData, CreateDataReturnType } from '../../common/utils/createData'
+import { createData } from '../../common/utils/createData'
 import { StyledTableCell, StyledTableRow, table, tableContainer } from './StyledTableCell'
 import { PaginationControlled } from '../pagination/Pagination'
 import { DataForDisplayingType } from '../../servises/api'
 import { Draggable } from 'react-beautiful-dnd'
 
-export type StringMap = { [key: string]: CreateDataReturnType[] }
 type StockTableType = {
   quotes: DataForDisplayingType[]
   setRowsForDisplaying: (number: string) => void
