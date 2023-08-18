@@ -20,9 +20,12 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export const tableContainer = {
   maxWidth: 1200,
   margin: '25px auto ',
+  height: '650px',
+  padding: '10px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'relative',
 }
 export const table = {
   maxWidth: 900,
