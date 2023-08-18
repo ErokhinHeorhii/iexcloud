@@ -1,6 +1,7 @@
 {
   "name": "iexcloud",
   "version": "0.1.0",
+  "homepage": "https://ErokhinHeorhii.github.io/iexcloud",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -35,6 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "format": "prettier --write src",
     "lint": "eslint --fix src/**/*.{tsx,ts,jsx,js} --no-error-on-unmatched-pattern && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input"

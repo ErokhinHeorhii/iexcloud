@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '../../redux/store'
 import { getRatesTC } from '../../redux/dataReducer'
 import {
   Container,
-  LinearProgress,
   Paper,
   Table,
   TableBody,
@@ -30,7 +29,6 @@ type StockTableType = {
 export const StockTable = ({ quotes, setRowsForDisplaying }: StockTableType) => {
   const dispatch = useAppDispatch()
   const symbolData = useAppSelector(state => state.tableData.dataForDisplaying)
-  const status = useAppSelector(state => state.appData.status)
 
   useEffect(() => {
     dispatch(getRatesTC())
