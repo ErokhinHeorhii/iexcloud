@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/iexcloud/static/css/main.52e42b3a.css",
+    "main.js": "/iexcloud/static/js/main.8ed08476.js",
+    "static/js/787.2822ae31.chunk.js": "/iexcloud/static/js/787.2822ae31.chunk.js",
+    "index.html": "/iexcloud/index.html",
+    "main.52e42b3a.css.map": "/iexcloud/static/css/main.52e42b3a.css.map",
+    "main.8ed08476.js.map": "/iexcloud/static/js/main.8ed08476.js.map",
+    "787.2822ae31.chunk.js.map": "/iexcloud/static/js/787.2822ae31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52e42b3a.css",
+    "static/js/main.8ed08476.js"
+  ]
+}
