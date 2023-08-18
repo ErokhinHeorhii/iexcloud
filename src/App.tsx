@@ -4,10 +4,10 @@ import { DataForDisplayingType } from './servises/api'
 import { StockTable } from './components/table/StockTable'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { UseDropp } from './common/hooks/UseDropp'
+import { LinearProgress } from '@mui/material'
 import './App.css'
 import '../src/assets/styles/reset.css'
 import '../src/assets/styles/global.scss'
-import { LinearProgress } from '@mui/material'
 
 const App = () => {
   const [rowsForDisplaying, setRowsForDisplaying] = useState<string>('1')

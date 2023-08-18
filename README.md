@@ -1,13 +1,18 @@
-# Getting Started with Create React App
+# iexcloud
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+In this application you can see the price of Apple shares for the last month. You can also easily swap lines with dnd.
+Thank)
+
+
 ## Demo:
 
-[![demo](https://img.shields.io/badge/-demo-brightgreen?style=for-the-badge&logo=github)]("https://ErokhinHeorhii.github.io/iexcloud")
+[![demo](https://img.shields.io/badge/-demo-brightgreen?style=for-the-badge&logo=github)](https://ErokhinHeorhii.github.io/iexcloud/)
+
 
 ## Stack:
 
